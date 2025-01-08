@@ -1,0 +1,95 @@
+<!--
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>投稿詳細</title>
+    {{ moment.include_moment() }}
+</head>s
+<body>
+    <h1>{{ post.title }}</h1>
+
+    <p><strong>投稿主:</strong> {{ post.author.username }}</p>
+    <p><strong>投稿内容:</strong> {{ post.content|safe }}</p>
+    <p><strong>URL:</strong><a href= {{ post.url }}> {{ post.url }} </a></p>
+    <strong>更新日時:</strong> {{ moment(post.updated_at).format('YYYY-MM-DD HH:mm:ss') }}<br>
+    
+    <h2>コメント</h2>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <p>{{ comment.user.username }}</p>
+                <strong>コメント内容:</strong> {{ comment.content|safe }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% if session.user_id %}
+    <form action="{{ url_for('comment', post_id=post.id) }}" method="post">
+        <label for="content">コメント:</label>
+        <input type="text" id="content" name="content" required>
+        <button type="submit">コメントする</button>
+    </form>
+    {% else %}
+        <p><a href="/login">ログインしてコメントする</a></p>
+    {% endif %}
+    <a href="/">戻る</a>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投稿詳細</title>
+    {{ moment.include_moment() }}
+    <link href="{{ url_for('static', filename='css/post_detail.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <p><strong>投稿主:</strong> {{ post.author.username }}</p>
+        <header>
+            <h2>{{ post.title }}</h2>
+        </header>
+        <section class="post-info">
+            <p>{{ post.content|safe }}</p>
+            {% if post.url %}
+                <p><a href="{{ post.url }}" target="_blank">URL：{{ post.url }}</a></p>
+            {% else %}
+            {% endif %}
+            <p id="data">{{ moment(post.updated_at).format('YYYY-MM-DD HH:mm:ss') }}</p>
+        </section>
+
+        <section class="comments">
+            <h3>コメント</h3>
+            {% if comments %}
+                <ul>
+                    {% for comment in comments %}
+                        <li class="comment">
+                            <p><strong>{{ comment.user.username }}:</strong> {{ comment.content|safe }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>コメントはありません。</p>
+            {% endif %}
+        </section>
+
+        {% if session.user_id %}
+            <section class="add-comment">
+                <h4>コメントを追加する</h4>
+                <form action="{{ url_for('comment', post_id=post.id) }}" method="post">
+                    <textarea id="content" name="content" required></textarea>
+                    <button type="submit">送信</button>
+                </form>
+            </section>
+        {% else %}
+            <p><a href="/login">ログインしてコメントする</a></p>
+        {% endif %}
+        <footer>
+            <a href="/">戻る</a>
+        </footer>
+    </div>
+</body>
+</html>

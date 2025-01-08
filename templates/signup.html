@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規アカウント作成</title>
+    <link href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>新規アカウント作成</h1>
+    <div class="box">
+    <form action="/signup" method="post">
+        <label for="username">ユーザー名:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">パスワード:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">アカウント作成</button>
+    </form>
+    </div>
+    <!-- Flash message block -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <a href="/login">ログイン</a>
+    <a href="/">トップページに戻る</a>
+</body>
+</html>

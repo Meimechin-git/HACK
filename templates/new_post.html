@@ -1,0 +1,74 @@
+<!--
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新しいつぶやきを作成</title>
+</head>
+<body>
+    <h1>新しいつぶやきを作成</h1>
+    <form action="/new_post" method="post">
+      <label for="content">タイトル:</label>
+      <textarea name="title" id="title"></textarea><br>
+      <br>
+      <label for="content">つぶやき内容:</label>
+      <textarea name="content" id="content"></textarea><br>
+      <br>
+      <label for="content">URL:</label>
+      <textarea name="url" id="url"></textarea><br>
+      <br>
+      <select name="type" id="type">
+        <option value="1">Type 1</option>
+        <option value="2">Type 2</option>
+      </select><br>
+      <button type="submit">更新する</button>
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <a href="/">戻る</a>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新しい投稿を作成</title>
+    <!-- CSSのリンク -->
+    <link href="{{ url_for('static', filename='css/new_post.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>新しい投稿を作成</h1>
+    <div class="box">
+    <form action="/new_post" method="post">
+        <label for="title">タイトル:</label>
+        <textarea name="title" id="title" placeholder="タイトルを入力してください" required></textarea>
+        
+        <label for="content">投稿内容:</label>
+        <textarea name="content" id="content" placeholder="投稿の内容を入力してください" required></textarea>
+        
+        <label for="url">Botのリンク:</label>
+        <textarea name="url" id="url" placeholder="URLを入力してください（要望の投稿では必要ありません）"></textarea>
+        
+        <label for="type">カテゴリ:</label>
+        <select name="type" id="type" required>
+            <option value="1">制作BOT</option>
+            <option value="2">要望</option>
+        </select>
+        
+        <button type="submit">投稿</button>
+    </form>
+    </div>
+    
+    <a href="/">トップページに戻る</a>
+</body>
+</html>
+

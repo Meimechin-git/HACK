@@ -1,0 +1,91 @@
+/* static/css/my_posts.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f3f4f6;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.box {
+    width:100%;
+}
+
+.content {
+    margin: auto;
+    max-width: 800px;
+    min-width: 400px;
+    padding: 30px 25px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #63d479;
+}
+
+h2 {
+    margin-top: 40px;
+    font-size: 1.5em;
+    color: #333;
+    border-bottom: 2px solid #63d479;
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+li strong {
+    font-weight: bold;
+    color: #555;
+}
+
+a {
+    text-decoration: none;
+    color: #63d479;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #00b31b;
+}
+
+a:last-of-type {
+    margin-right: 0;
+}
+
+button {
+    padding: 8px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #c82333;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #888;
+}

@@ -1,0 +1,218 @@
+.container {
+  margin:0px auto;
+  width:1200px;
+}
+
+.click_btn {
+  margin: 5px;
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 60px;
+  outline: none;
+  color: #63d479;
+  border:1px solid #63d479;
+  border-radius: 10px;
+  background-color: #fff;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+.click_btn:hover {
+  color: #fff;
+  border:1px solid #63d479;
+  background-color: #63d479;
+}
+
+
+.content_box {
+  margin:10px 0px;
+  padding-bottom:20px;
+  border-bottom:5px solid #63d479;
+}
+.heading {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.heading::before{
+  background-color: #63d479;
+  content: "";
+  height: 5px;
+  width: 50px;
+}
+
+.heading::after {
+  background-color: #63d479;
+  content: "";
+  height: 5px;
+  width: 950px;
+}
+/*
+.heading::before {
+  margin-right: 15px;
+}
+.heading::after {
+  margin-left: 15px;
+}*/
+
+
+
+/* 以下スライドアイテム用 */
+
+.post{
+  /* margin: 10px;
+  width:180px; */
+  position:relative;
+  border: 1px solid #63d479;
+  background: #f2fff2;
+  flex: 0 0 200px; /* 幅200pxを指定し、縮小を防止 */
+  margin: 0px; /* マージンを適切に設定 */
+  padding: 20px;
+  height:200px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-decoration: none;
+  color:rgb(81, 81, 114);
+}
+.post .author {
+  font-size: 12px;
+  padding:1px 4px;
+  width:fit-content;
+  background-color: #a1e1b0;
+  border-radius:10px;
+}
+.post .title {
+  font-size: 14px;
+  height:28px;
+  margin:5px 0px;
+}
+.post .content {
+  font-size: 12px;
+  margin:5px 0px;
+}
+.post .date {
+  position: absolute;
+  bottom: 20px;
+  font-size: 10px;
+  color:gray;
+}
+
+.post:hover {
+  box-shadow:0 0 5px  #59d371;
+  border: 1px solid #59d371;
+}
+
+.item{
+  display:flex;
+  justify-content: space-around;
+  /* border: 1px solid #999; */
+  padding: 10px 0px;
+}
+
+.itemCardListMask {
+  overflow-x: hidden;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+
+  /* white-space: nowrap; */
+  width:1000px;
+}
+
+#itemList1 {
+  display: flex;
+  /**/
+  position:relative;
+  transition: left .2s;
+  left: 0px;
+  /**/
+}
+#itemList2 {
+  display: flex;
+  /**/
+  position:relative;
+  transition: left .2s;
+  left: 0px;
+  /**/
+}
+
+
+
+
+/*----- 三角の矢印 */
+.arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.arrow::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+.arrow.-left {
+    margin:auto 0px;
+    left: 24px;
+    transition: all .3s;  
+}
+
+.arrow.-left:hover {
+  transform: scale(1.5,1.5);
+}
+
+
+.arrow.-right {
+    margin:auto 0px;
+    right: 24px;
+    transition: all .3s;  
+}
+
+.arrow.-right:hover {
+  transform: scale(1.5,1.5);
+}
+
+
+
+/* 左向き */
+.arrow.-left::before {
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 16px solid #fff;
+    border-left: 0;
+    transform: translateX(-1px);
+    margin:auto 0;
+
+}
+/* 右向き */
+.arrow.-right::before {
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 16px solid #fff;
+    border-right: 0;
+    transform: translateX(1px);
+    margin:auto 0;
+
+}
+/* 上向き */
+.arrow.-top::before {
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-bottom: 8px solid #fff;
+    border-top: 0;
+    transform: translateY(-1px);
+}
+/* 下向き */
+.arrow.-bottom::before {
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-top: 8px solid #fff;
+    border-bottom: 0;
+    transform: translateY(1px);
+}
