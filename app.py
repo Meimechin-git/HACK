@@ -41,14 +41,14 @@ def home():
 def get_type1_posts():
     type1_posts = Post.query.filter_by(type=1).order_by(Post.id.desc()).all()
     for type1_post in type1_posts:
-        type1_post.title = type1_post.title[0:20]+"…" if len(type1_post.title)>20 else type1_post.title
+        type1_post.title = type1_post.title[0:9]+"…" if len(type1_post.title)>20 else type1_post.title
         type1_post.content = type1_post.content[0:51]+"…" if len(type1_post.content)>51 else type1_post.content
     return type1_posts
 #要望集収集処理
 def get_type2_posts():
     type2_posts = Post.query.filter_by(type=2).order_by(Post.id.desc()).all()
     for type2_post in type2_posts:
-        type2_post.title = type2_post.title[0:20]+"…" if len(type2_post.title)>20 else type2_post.title
+        type2_post.title = type2_post.title[0:9]+"…" if len(type2_post.title)>20 else type2_post.title
         type2_post.content = type2_post.content[0:51]+"…" if len(type2_post.content)>51 else type2_post.content
     return type2_posts
 
